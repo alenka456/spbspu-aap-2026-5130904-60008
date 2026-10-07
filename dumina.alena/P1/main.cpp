@@ -8,6 +8,10 @@ int main(){
     int prevEl = 0; int curEl = 0; int nextEl = 0; int suitElCount = 0;
 
     if(!(std::cin >> prevEl)){
+      if (std::cin.eof()){
+        std::cout << "0\n";
+        return 0;
+      }
       throw std::invalid_argument("Invalid input\n");
     }
 
@@ -17,18 +21,24 @@ int main(){
     }
 
     if (!(std::cin >> curEl)){
-      std::cout << 0;
-      return 0;
-    };
+      if (std::cin.eof()){
+        std::cout << "0\n";
+        return 0;
+      }
+      throw std::invalid_argument("Invalid input\n");
+    }
 
     if (curEl == 0){
-      std::cout << 0;
+      std::cout << "0\n";
       return 0;
     }
 
 
     while(true){
     if(!(std::cin >> nextEl)){
+      if (std::cin.eof()) {
+        break;
+      }
       throw std::invalid_argument("Invalid input\n");
     }
 
@@ -41,10 +51,10 @@ int main(){
       prevEl = curEl;
       curEl = nextEl;
     }
-    std::cout << suitElCount;
+    std::cout << suitElCount << '\n';
   }
   catch(const std::invalid_argument& ex){
-    std::cerr << "Invalid_argument: " << ex.what() << "\n";
+    std::cerr << "Invalid_argument: " << ex.what() << '\n';
     std::exit(invalid_data_exit_code);
   }
   return 0;
