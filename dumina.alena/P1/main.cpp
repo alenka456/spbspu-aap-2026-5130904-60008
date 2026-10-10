@@ -3,7 +3,8 @@
 #include <stdexcept>
 
 constexpr int invalid_data_exit_code = 1;
-int main() {
+int main()
+{
   try {
     int prev_el = 0;
     int cur_el = 0;
