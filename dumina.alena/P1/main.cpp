@@ -1,23 +1,23 @@
 #include <iostream>
 #include <stdexcept>
 
-constexpr int INVALID_DATA_EXIT_CODE = 1;
-const char INVALID_INPUT_MESSAGE[] = "INVALID INPUT";
+constexpr int invalid_data_exit_code = 1;
+const char invalid_input_message[] = "INVALID INPUT";
 
-int calc_suit_elem_count();
+int calcSuitElemCount();
 
 int main()
 {
   try {
-    std::cout << calc_suit_elem_count() << '\n';
+    std::cout << calcSuitElemCount() << '\n';
   } catch (const std::invalid_argument &ex) {
     std::cerr << ex.what() << '\n';
-    return INVALID_DATA_EXIT_CODE;
+    return invalid_data_exit_code;
   }
   return 0;
 }
 
-int calc_suit_elem_count()
+int calcSuitElemCount()
 {
   int prev_el = 0;
   int cur_el = 0;
@@ -25,7 +25,7 @@ int calc_suit_elem_count()
   int suit_el_count = 0;
 
   if (!(std::cin >> prev_el)) {
-    throw std::invalid_argument(INVALID_INPUT_MESSAGE);
+    throw std::invalid_argument(invalid_input_message);
   }
 
   if (prev_el == 0) {
@@ -33,7 +33,7 @@ int calc_suit_elem_count()
   }
 
   if (!(std::cin >> cur_el)) {
-    throw std::invalid_argument(INVALID_INPUT_MESSAGE);
+    throw std::invalid_argument(invalid_input_message);
   }
 
   if (cur_el == 0) {
@@ -42,7 +42,7 @@ int calc_suit_elem_count()
 
   while (true) {
     if (!(std::cin >> next_el)) {
-      throw std::invalid_argument(INVALID_INPUT_MESSAGE);
+      throw std::invalid_argument(invalid_input_message);
     }
 
     if (next_el == 0) {
